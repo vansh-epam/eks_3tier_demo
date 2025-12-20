@@ -1,0 +1,10 @@
+# Terraform
+terraform.tfstate
+terraform.tfstate.backup
+.terraform/
+*.tfplan
+*.tfplan.*
+
+# OS
+.DS_Store
+Thumbs.db

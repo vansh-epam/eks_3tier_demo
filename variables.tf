@@ -23,5 +23,5 @@ variable "node_max_size" {
 }
 
 variable "node_instance_type" {
-  default = "t3.medium"
+  default = "t3.small"
 }

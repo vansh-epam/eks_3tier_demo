@@ -50,6 +50,20 @@ module "observability" {
   depends_on = [module.eks]
 }
 
+module "alb_controller" {
+  source = "./modules/alb-controller"
+
+  cluster_name      = var.cluster_name
+  oidc_provider_arn = module.eks.oidc_provider_arn
+  vpc_id            = module.vpc.vpc_id
+
+  providers = {
+    helm = helm.eks
+  }
+
+  depends_on = [module.eks]
+}
+
 module "apps" {
   source           = "./modules/apps"
   eks_cluster_name = module.eks.cluster_name
@@ -58,5 +72,6 @@ module "apps" {
     kubernetes = kubernetes.eks
   }
   
-  depends_on = [module.eks]
+  depends_on = [module.alb_controller, module.eks]
 }
+

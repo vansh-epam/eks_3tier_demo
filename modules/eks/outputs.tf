@@ -13,3 +13,7 @@ output "cluster_certificate_authority_data" {
 output "cluster_auth_token" {
   value = data.aws_eks_cluster_auth.this.token
 }
+
+output "oidc_provider_arn" {
+  value = module.eks.oidc_provider_arn
+}

@@ -18,8 +18,8 @@ resource "kubernetes_deployment" "frontend" {
       spec {
         container {
           name  = "frontend"
-          image = "containous/whoami"
-          port { container_port = 80 }
+          image = "swaggerapi/swagger-ui"
+          port { container_port = 8080 }
         }
       }
     }
